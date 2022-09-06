@@ -1,4 +1,4 @@
-package formatter
+package formatters
 
 import (
 	"github.com/go-playground/validator/v10"
