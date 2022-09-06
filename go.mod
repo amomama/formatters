@@ -1,4 +1,4 @@
-module github.com/amomama/formatters
+module github.com/amomama/formatters/v1
 
 go 1.17
 
