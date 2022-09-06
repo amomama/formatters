@@ -32,20 +32,20 @@ func TestValidationResponse(t *testing.T) {
 		Errors: []Error{
 			{
 				Attribute: "name",
-				Validator: Validator{
+				ValidationAttributes: ValidationAttributes{
 					Name:  "min",
 					Value: "4",
 				},
 			},
 			{
 				Attribute: "email",
-				Validator: Validator{
+				ValidationAttributes: ValidationAttributes{
 					Name: "email",
 				},
 			},
 			{
 				Attribute: "password",
-				Validator: Validator{
+				ValidationAttributes: ValidationAttributes{
 					Name: "required",
 				},
 			},

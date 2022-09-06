@@ -8,11 +8,11 @@ import (
 )
 
 type Error struct {
-	Attribute string `json:"attribute"`
-	Validator `json:"validator"`
+	Attribute            string `json:"attribute"`
+	ValidationAttributes `json:"validator"`
 }
 
-type Validator struct {
+type ValidationAttributes struct {
 	Name  string `json:"name"`
 	Value string `json:"value,omitempty"`
 }
@@ -38,7 +38,7 @@ func ValidationResponse(err error) (code int, errors ValidationErrors) {
 	for _, err := range err.(validator.ValidationErrors) {
 		errors.AddError(Error{
 			Attribute: strings.ToLower(err.Field()),
-			Validator: Validator{
+			ValidationAttributes: ValidationAttributes{
 				Name:  strcase.ToLowerCamel(err.Tag()),
 				Value: err.Param(),
 			},

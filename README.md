@@ -25,7 +25,7 @@ Formatters package create validation response like:
 ## Install
 
 ```bash
-go get github.com/amomama/amo_formatters
+go get github.com/amomama/formatters
 ```
 
 ## Examples
@@ -38,7 +38,7 @@ request := security.NewAuthenticateRequest(ctx, sh.validator)
 err := request.Validate()
 
 if err != nil {
-    code, response := formatter.ValidationResponse(err)
+    code, response := formatters.ValidationResponse(err)
     return ctx.Status(code).JSON(response)
 }
 
@@ -51,7 +51,7 @@ if err != nil {
 func (handler *MenuHandler) Create(w http.ResponseWriter, r *http.Request) {
     err = handler.validator.Validate(menuDTO)
     if err != nil {
-        code, response := formatter.ValidationResponse(err)
+        code, response := formatters.ValidationResponse(err)
         w.WriteHeader(code)
 
 		data, _ := := json.Marshal(response)
